@@ -1,0 +1,68 @@
+name: "Create post"
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_number:
+        description: '문서번호 3자리：001'
+        required: true
+        type: string
+      post_date:
+        description: '연월일 8자리：20220404'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-post:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set name and email to Git
+      run: |
+        git config --local user.name github-actions[bot]
+        git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+    - name: Create and switch work branch
+      id: create_work_branch
+      run: |
+        WORK_BRANCH_NAME="feature/${{ github.event.inputs.post_number }}_${{ github.event.inputs.post_date }}"
+        git switch -c "$WORK_BRANCH_NAME"
+        echo "work_branch_name=$WORK_BRANCH_NAME" >> $GITHUB_OUTPUT
+
+    - name: Create post
+      id: create_post
+      run: |
+        POST_FILENAME="${{ github.event.inputs.post_number }}-${{ github.event.inputs.post_date }}.md"
+        POST_FILE="./Content/posts/$POST_FILENAME"
+        POST_DATE_BEFORE=${{ github.event.inputs.post_date }}
+        POST_YEAR=${POST_DATE_BEFORE:0:4}
+        POST_MONTH=${POST_DATE_BEFORE:4:2}
+        POST_DAY=${POST_DATE_BEFORE:6:2}
+        POST_DATE=$POST_YEAR-$POST_MONTH-$POST_DAY
+        touch $POST_FILE
+        echo -e "---\ndate: $POST_DATE 09:00\ndescription: TBD\ntags: TBD\n---\n# ${{ github.event.inputs.post_number }} $POST_DATE\n\n## TBD\n\n{깃 작성}\n\n## Apple SoftWare Release\n\nApple이 제공하는 OS, IDE 정보\n\n### Release\n\n- [TBD](TBD)\n\n### Beta\n\n- [TBD](TBD)\n\n## OSS 릴리즈 정보\n\niOS 앱 개발에 자주 사용되는 OSS의 릴리스 정보입니다.\n\n### Apple\n\n#### TBD\n\n[TBD](TBD)\n\nTBD\n\n### Third-Party\n\n#### TBD\n\n[TBD](TBD)\n\nTBD" > $POST_FILE
+        echo -e "---\ndate: $POST_DATE 09:00\ndescription: TBD\ntags: TBD\n---\n# ${{ github.event.inputs.post_number }} $POST_DATE\n\n## TBD\n\n{깃 작성}\n\n## Apple SoftWare Release\n\nApple이 제공하는 OS, IDE 정보\n\n### Release\n\n- [TBD](TBD)\n\n### Beta\n\n- [TBD](TBD)\n\n## OSS 릴리즈 정보\n\niOS 앱 개발에 자주 사용되는 OSS의 릴리스 정보입니다.\n\n### Apple\n\n#### TBD\n\n[TBD](TBD)\n\nTBD\n\n### Third-Party\n\n#### TBD\n\n[TBD](TBD)\n\nTBD" > $POST_FILE
+        git add $POST_FILE
+        git commit -m "Create $POST_FILENAME"
+        git push origin ${{ steps.create_work_branch.outputs.work_branch_name }}
+        echo "post_filename=$POST_FILENAME" >> $GITHUB_OUTPUT
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create pull request
+      run: |
+        gh --version
+        gh pr create \
+          --title "Create ${{ steps.create_post.outputs.post_filename }}" \
+          --body "## 스크린샷\n\n| `${{ steps.create_post.outputs.post_filename }}` |\n|:--:|\n|TBD|" \
+          --base "${{ github.event.repository.default_branch }}" \
+          --head "${{ steps.create_work_branch.outputs.work_branch_name }}" \
+          --draft
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
