@@ -30,3 +30,7 @@ jobs:
       run: make setup
     - name: Generate the website
       run: make generate
+    - name: github.io 배포
+      uses: actions/workflow-dispatch@v2
+      with:
+        workflow: depoly.yml
