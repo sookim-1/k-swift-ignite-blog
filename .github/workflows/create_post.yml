@@ -25,8 +25,8 @@ jobs:
 
     - name: Set name and email to Git
       run: |
-        git config --local user.name sookim-1
-        git config --local user.email scstnghks@gmail.com
+        git config --local user.name github-actions[bot]
+        git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
 
     - name: Create and switch work branch
       id: create_work_branch
