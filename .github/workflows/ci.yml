@@ -33,4 +33,4 @@ jobs:
     - name: github.io 배포
       uses: actions/workflow-dispatch@v2
       with:
-        workflow: depoly.yml
+        workflow: ./.github/workflows/depoly.yml
