@@ -8,7 +8,7 @@ on:
         required: true
         type: string
       post_date:
-        description: '연월일 8자리：20220404'
+        description: '연월일 8자리：20240101'
         required: true
         type: string
 
@@ -25,8 +25,8 @@ jobs:
 
     - name: Set name and email to Git
       run: |
-        git config --local user.name github-actions[bot]
-        git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
+        git config --local user.name sookim-1
+        git config --local user.email scstnghks@gmail.com
 
     - name: Create and switch work branch
       id: create_work_branch
@@ -46,9 +46,8 @@ jobs:
         POST_DAY=${POST_DATE_BEFORE:6:2}
         POST_DATE=$POST_YEAR-$POST_MONTH-$POST_DAY
         touch $POST_FILE
-        echo -e "---\ndate: $POST_DATE 09:00\ndescription: TBD\ntags: TBD\n---\n# ${{ github.event.inputs.post_number }} $POST_DATE\n\n## TBD\n\n{깃 작성}\n\n## Apple SoftWare Release\n\nApple이 제공하는 OS, IDE 정보\n\n### Release\n\n- [TBD](TBD)\n\n### Beta\n\n- [TBD](TBD)\n\n## OSS 릴리즈 정보\n\niOS 앱 개발에 자주 사용되는 OSS의 릴리스 정보입니다.\n\n### Apple\n\n#### TBD\n\n[TBD](TBD)\n\nTBD\n\n### Third-Party\n\n#### TBD\n\n[TBD](TBD)\n\nTBD" > $POST_FILE
-        echo -e "---\ndate: $POST_DATE 09:00\ndescription: TBD\ntags: TBD\n---\n# ${{ github.event.inputs.post_number }} $POST_DATE\n\n## TBD\n\n{깃 작성}\n\n## Apple SoftWare Release\n\nApple이 제공하는 OS, IDE 정보\n\n### Release\n\n- [TBD](TBD)\n\n### Beta\n\n- [TBD](TBD)\n\n## OSS 릴리즈 정보\n\niOS 앱 개발에 자주 사용되는 OSS의 릴리스 정보입니다.\n\n### Apple\n\n#### TBD\n\n[TBD](TBD)\n\nTBD\n\n### Third-Party\n\n#### TBD\n\n[TBD](TBD)\n\nTBD" > $POST_FILE
-        git add $POST_FILE
+        echo -e "---\n작성일자: $POST_DATE 09:00\n요약: TBD\n태그목록: TBD\n---\n# ${{ github.event.inputs.post_number }} $POST_DATE\n\n## 주간 키워드\n\n{깃 작성}, {Combine}, {Swift}\n\n## 새로 알게된 사실\n\n1. Apple이 제공하는 OS, IDE 정보\n\n > $POST_FILE
+        it add $POST_FILE
         git commit -m "Create $POST_FILENAME"
         git push origin ${{ steps.create_work_branch.outputs.work_branch_name }}
         echo "post_filename=$POST_FILENAME" >> $GITHUB_OUTPUT
@@ -60,7 +59,7 @@ jobs:
         gh --version
         gh pr create \
           --title "Create ${{ steps.create_post.outputs.post_filename }}" \
-          --body "## 스크린샷\n\n| `${{ steps.create_post.outputs.post_filename }}` |\n|:--:|\n|TBD|" \
+          --body "## 주간일지 기록\n-문서번호: ${{ github.event.inputs.post_number }}\n-날짜: ${{ github.event.inputs.post_date }}" \
           --base "${{ github.event.repository.default_branch }}" \
           --head "${{ steps.create_work_branch.outputs.work_branch_name }}" \
           --draft
