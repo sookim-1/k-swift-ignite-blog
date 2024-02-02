@@ -2,7 +2,7 @@ name: Deploy
 
 on: 
     workflow_run:
-        workflows: ["cit"]
+        workflows: ["ci"]
         types:
           - completed
 permissions:
