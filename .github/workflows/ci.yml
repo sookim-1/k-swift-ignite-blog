@@ -30,7 +30,10 @@ jobs:
       run: make setup
     - name: Generate the website
       run: make generate
-    - name: github.io 배포
-      uses: actions/workflow-dispatch@v2
-      with:
-        workflow: ./.github/workflows/depoly.yml
+    - name: Run deploy.yml
+      run: |
+        curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_TOKEN }}" \
+        -H "Accept: application/vnd.github.everest-preview+json" \
+        -H "Content-Type: application/json" \
+        https://api.github.com/repos/:owner/:repo/dispatches \
+        --data '{"event_type": "run-deploy.yml", "client_payload": {"parameter1": "value1", "parameter2": "value2"}}'
