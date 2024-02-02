@@ -27,7 +27,7 @@ private struct BlogWebsiteHTMLFactory<Site: Website>: HTMLFactory {
                     H1(index.title)
                     Paragraph(context.site.description)
                         .class("description")
-                    H2("최신 문서")
+                    H2("목록")
                     ItemList(
                         items: context.allItems(
                             sortedBy: \.date,
@@ -61,18 +61,22 @@ private struct BlogWebsiteHTMLFactory<Site: Website>: HTMLFactory {
             .lang(context.site.language),
             .head(for: item, on: context.site),
             .body(
-                .script(.async(), .src("https://platform.twitter.com/widgets.js")),
-                .script(.async(), .src("https://b.st-hatena.com/js/bookmark_button.js")),
+                // .script(.async(), .src("https://platform.twitter.com/widgets.js")),
+                // .script(.async(), .src("https://b.st-hatena.com/js/bookmark_button.js")),
                 .class("item-page"),
                 .components {
                     SiteHeader(context: context, selectedSelectionID: item.sectionID)
                     Wrapper {
                         Article {
+                            /*
                             Div {
-                                TweetButton(item: item, site: context.site)
-                                HatebButton()
+                                // TweetButton(item: item, site: context.site)
+                                GmailButton()
+                                LinkedInButton()
+                                GithubButton()
                             }
                             .class("share-buttons")
+                            */
                             Div(item.content.body).class("content")
                             Span("태그: ")
                             ItemTagList(item: item, site: context.site)
@@ -147,6 +151,8 @@ private struct BlogWebsiteHTMLFactory<Site: Website>: HTMLFactory {
         )
     }
 
+    /*
+    // Tweet Button - 공유하기
     private struct TweetButton<Site: Website>: Component {
         private var tweetText: String { "\(item.title) | \(site.name)" }
         private var urlString: String { site.url.absoluteString + item.path.absoluteString }
@@ -160,10 +166,29 @@ private struct BlogWebsiteHTMLFactory<Site: Website>: HTMLFactory {
                 .class("twitter-share-button")
         }
     }
+    */
 
-    private struct HatebButton: Component {
+    // Gmail Button
+    private struct GmailButton: Component {
         var body: Component {
-            Link(url: "https://www.linkedin.com/feed/") {
+            Link(url: "mailto:scstnghks@gmail.com") {
+                Image(
+                    url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDUlEQVR4AWP4////gOLB44D6nTcsGIo33QHi/zTGd0B2YTiAPpYjHIHNAf/piQk6wGPW8f/rLz8HYRCbXg5AWI4GQGJ0cwDY12gAJDbcHUA4CkZAIqQUK7Ts/m/SfxBMs5RupswBaACr+P47b/5zlG/5DyzZ/r/+8hNF7vuvP//nn3r0X6JhJ+0ccPrR+/+H7735jw9cf/n5v0D1Nuo5gBxQve06zR0AjoL7b7/+//zjN4bc+ScfaOeA33///k9Yfg4mDw7u/Xdeo6uhnQP6D93FMNxlxjF0ZbRzgMXEQ9iyI90cALIMJoccDXRzAK6CZog6YNQBow6gIx54Bwx4x2RAu2bAysoEZu9o7xgAQrvkxt3WZi0AAAAASUVORK5CYII=",
+                    description: "지메일 주소"
+                )
+                .attribute(named: "width", value: "20")
+                .attribute(named: "height", value: "20")
+                .style("border: none;")
+            }
+            .class("gmail-bookmark-button")
+            .attribute(named: "title", value: "지메일")
+        }
+    }
+
+    // LinkedIn Button
+    private struct LinkedInButton: Component {
+        var body: Component {
+            Link(url: "https://www.linkedin.com/in/soohwan-kim-80250623a/") {
                 Image(
                     url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDUlEQVR4AWP4////gOLB44D6nTcsGIo33QHi/zTGd0B2YTiAPpYjHIHNAf/piQk6wGPW8f/rLz8HYRCbXg5AWI4GQGJ0cwDY12gAJDbcHUA4CkZAIqQUK7Ts/m/SfxBMs5RupswBaACr+P47b/5zlG/5DyzZ/r/+8hNF7vuvP//nn3r0X6JhJ+0ccPrR+/+H7735jw9cf/n5v0D1Nuo5gBxQve06zR0AjoL7b7/+//zjN4bc+ScfaOeA33///k9Yfg4mDw7u/Xdeo6uhnQP6D93FMNxlxjF0ZbRzgMXEQ9iyI90cALIMJoccDXRzAK6CZog6YNQBow6gIx54Bwx4x2RAu2bAysoEZu9o7xgAQrvkxt3WZi0AAAAASUVORK5CYII=",
                     description: "링크드인 주소"
@@ -172,10 +197,28 @@ private struct BlogWebsiteHTMLFactory<Site: Website>: HTMLFactory {
                 .attribute(named: "height", value: "20")
                 .style("border: none;")
             }
-            .class("hatena-bookmark-button")
+            .class("linkedIn-bookmark-button")
             .attribute(named: "title", value: "링크드인")
         }
     }
+
+    // Github Button
+    private struct GithubButton: Component {
+        var body: Component {
+            Link(url: "https://www.linkedin.com/feed/") {
+                Image(
+                    url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDUlEQVR4AWP4////gOLB44D6nTcsGIo33QHi/zTGd0B2YTiAPpYjHIHNAf/piQk6wGPW8f/rLz8HYRCbXg5AWI4GQGJ0cwDY12gAJDbcHUA4CkZAIqQUK7Ts/m/SfxBMs5RupswBaACr+P47b/5zlG/5DyzZ/r/+8hNF7vuvP//nn3r0X6JhJ+0ccPrR+/+H7735jw9cf/n5v0D1Nuo5gBxQve06zR0AjoL7b7/+//zjN4bc+ScfaOeA33///k9Yfg4mDw7u/Xdeo6uhnQP6D93FMNxlxjF0ZbRzgMXEQ9iyI90cALIMJoccDXRzAK6CZog6YNQBow6gIx54Bwx4x2RAu2bAysoEZu9o7xgAQrvkxt3WZi0AAAAASUVORK5CYII=",
+                    description: "깃허브 주소"
+                )
+                .attribute(named: "width", value: "20")
+                .attribute(named: "height", value: "20")
+                .style("border: none;")
+            }
+            .class("github-bookmark-button")
+            .attribute(named: "title", value: "깃허브")
+        }
+    }
+
 }
 
 private struct Wrapper: ComponentContainer {
@@ -247,14 +290,13 @@ private struct SiteFooter: Component {
     var body: Component {
         Footer {
             Paragraph {
-                Text("© 2023 Sookim-1")
-            }
-            Paragraph {
                 Text("Generated using ")
                 Link("Publish", url: "https://github.com/johnsundell/publish")
             }
             Paragraph {
-                Link("Twitter", url: "https://twitter.com/sookim-1")
+                Link("Gmail", url: "mailto:scstnghks@gmail.com")
+                Text(" | ")
+                Link("LinkedIn", url: "https://www.linkedin.com/in/soohwan-kim-80250623a/")
                 Text(" | ")
                 Link("GitHub", url: "https://github.com/sookim-1")
                 Text(" | ")

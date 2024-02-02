@@ -15,8 +15,8 @@ struct BlogWebsite: Publish.Website {
 
     // Update these properties to configure your website:
     var url = URL(string: "https://sookim-1.github.io")!
-    var name = "Sookim-1 😁"
-    var description = "iOS개발 블로그"
+    var name = "sookim-1"
+    var description = "Weekly Episodes"
     var language: Language { .korean }
     var imagePath: Path? { nil }
     var favicon: Favicon? { .init(path: "images/favicon.svg", type: "image/svg+xml") }

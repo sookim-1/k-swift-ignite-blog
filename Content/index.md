@@ -1,1 +1,1 @@
-# Sookim-1 😁
+# sookim-1의 Weekly Episodes
