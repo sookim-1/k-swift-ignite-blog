@@ -1,10 +1,13 @@
 name: Deploy
 
 on: 
-    workflow_run:
-        workflows: ["ci"]
-        types:
-          - completed
+  push:
+    branches:
+      - main
+  workflow_run:
+    workflows: ["ci"]
+    types:
+      - completed
 permissions:
   contents: read
 
@@ -24,6 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     container: "swift:5.6"
     needs: build
+    if: github.ref == 'refs/heads/main' # main 브랜치에 push 된 경우에만 실행
     steps:
     - uses: actions/checkout@v3
     - name: Setup
