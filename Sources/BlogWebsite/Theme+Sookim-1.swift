@@ -27,7 +27,7 @@ private struct BlogWebsiteHTMLFactory<Site: Website>: HTMLFactory {
                     H1(index.title)
                     Paragraph(context.site.description)
                         .class("description")
-                    H2("요약")
+                    H2("목록")
                     ItemList(
                         items: context.allItems(
                             sortedBy: \.date,
