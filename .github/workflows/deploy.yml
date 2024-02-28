@@ -1,10 +1,10 @@
 name: Deploy
 
 on: 
-    workflow_run:
-        workflows: ["ci"]
-        types:
-          - completed
+  schedule:
+    - cron: '0 23 * * 0'
+  workflow_dispatch:
+  
 permissions:
   contents: read
 
