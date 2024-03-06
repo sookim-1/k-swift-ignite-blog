@@ -13,3 +13,6 @@ github 블로그 웹사이트 소스 - sookim-1 주간회고록
 1. [create_post.yml](./.github/workflows/) 워크플로를 동작합니다.
 2. 추가된 브랜치와 마크다운 문서를 수정한 후 PR을 main브랜치에 Merge되면 [ci.yml](./.github/workflows/) 워크플로가 동작합니다.
 3. 성공하면 [deploy.yml](./.github/workflows/) 워크플로를 실행된 후 [sookim-1.github.io](https://github.com/sookim-1/sookim-1.github.io) 원격저장소에 배포됩니다.
+
+### TroubleShooting
+1. 일부 iOS 이모지가 배포가 안되는 이슈가 있습니다.
