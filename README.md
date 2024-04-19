@@ -2,7 +2,10 @@
 ![ci](https://github.com/sookim-1/blog-website/actions/workflows/ci.yml/badge.svg)
 ![create_post](https://github.com/sookim-1/blog-website/actions/workflows/create_post.yml/badge.svg)
 ![deploy](https://github.com/sookim-1/blog-website/actions/workflows/deploy.yml/badge.svg)
-github 블로그 웹사이트 소스 - sookim-1 주간회고록
+
+## 저장소 설명
+[sookim-1 주간회고록](https://sookim-1.github.io/) : 매주 개발과 관련된 회고록 작성한 블로그
+
 
 ## 수동 배포방법
 1. [Content/posts](./Content/posts) 폴더에 마크다운문서를 추가합니다.
