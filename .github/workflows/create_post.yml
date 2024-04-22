@@ -46,7 +46,7 @@ jobs:
         POST_DAY=${POST_DATE_BEFORE:6:2}
         POST_DATE=$POST_YEAR-$POST_MONTH-$POST_DAY
         touch $POST_FILE
-        echo -e "---\ndate: $POST_DATE\ndescription: TBD\ntags: ios, swift\n---\n# 번호 : ${{ github.event.inputs.post_number }}, 작성일자: $POST_DATE\n\n## 2024.01.01 ~ 2024.01.07, {Swift}\n\n### 제목\n\n1. Apple이 제공하는 OS, IDE 정보\n\n" > $POST_FILE
+        echo -e "---\ndate: $POST_DATE\ndescription: TBD\ntags: ios, swift\n---\n# 번호 : ${{ github.event.inputs.post_number }}, 작성일자: $POST_DATE\n\n## 2024.01.01 ~ 2024.01.07\n\n### 제목\n\n1. Apple이 제공하는 OS, IDE 정보\n\n" > $POST_FILE
         git add $POST_FILE
         git commit -m "Create $POST_FILENAME"
         git push origin ${{ steps.create_work_branch.outputs.work_branch_name }}
