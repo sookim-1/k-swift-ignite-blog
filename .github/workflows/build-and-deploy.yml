@@ -27,6 +27,11 @@ jobs:
       run: make setup
     - name: Generate the website
       run: make generate
+    - name: Copy existing files
+      run: |
+        cp google70dd4382a6eecd18.html ./Output/
+        cp robots.txt ./Output/
+        cp naver50ba38ef6c02338f50a2369f3010ed59.html ./Output/
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
