@@ -1,38 +1,32 @@
-name: Deploy
+name: Build and Deploy
 
-on: 
-  workflow_run:
-      workflows: ["ci"]
-      types:
-        - completed
-  
+on:
+  push:
+    branches: [ main ]
+
 permissions:
   contents: read
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-20.04
     container:
       image: swift:5.6-focal
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build
-      run: |
-        swift --version
-        swift package --version
-        swift build -v
-  deploy-github-pages:
-    runs-on: ubuntu-20.04
-    container:
-      image: swift:5.6-focal
-      options: --memory 2g
-    needs: build
     steps:
     - uses: actions/checkout@v3
     - name: Install Dependencies
       run: |
         apt-get update
         apt-get install -y make
+        fallocate -l 2G /swapfile
+        chmod 600 /swapfile
+        mkswap /swapfile
+        swapon /swapfile
+    - name: Build
+      run: |
+        swift --version
+        swift package --version
+        swift build -v
     - name: Setup
       run: make setup
     - name: Generate the website
