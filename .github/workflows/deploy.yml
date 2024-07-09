@@ -25,6 +25,7 @@ jobs:
     runs-on: ubuntu-20.04
     container:
       image: swift:5.6-focal
+      options: --memory 2g
     needs: build
     steps:
     - uses: actions/checkout@v3
