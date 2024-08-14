@@ -3,7 +3,10 @@
 ![build-and-deploy](https://github.com/sookim-1/blog-website/actions/workflows/build-and-deploy.yml/badge.svg)
 
 ## 저장소 설명
-[sookim-1 주간회고록](https://sookim-1.github.io/) : 매주 개발과 관련된 회고록 작성한 블로그
+해당 저장소는 [ios-oosushi's website](https://github.com/ios-osushi/website)를 참고하여 작성했습니다.
+매주 개발과 관련된 내용을 회고느낌으로 작성한 블로그배포 저장소입니다.
+추후 [Ignite](https://github.com/twostraws/Ignite)라이브러리를 사용하여 변경할 예정입니다.
+👉 [sookim-1 주간회고록](https://sookim-1.github.io/)
 
 
 ## 블로그 배포방법
