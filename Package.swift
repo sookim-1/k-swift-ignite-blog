@@ -1,25 +1,17 @@
-// swift-tools-version:5.6
+// swift-tools-version: 5.9
+// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
-    name: "BlogWebsite",
-    platforms: [.macOS(.v12)],
-    products: [
-        .executable(
-            name: "BlogWebsite",
-            targets: ["BlogWebsite"]
-        ),
-    ],
+    name: "SookimTWL",
+    platforms: [.macOS(.v13)],
     dependencies: [
-        .package(url: "https://github.com/johnsundell/publish.git", from: "0.9.0"),
+        .package(url: "https://github.com/sookim-1/Ignite.git", branch: "feat_content_style")
     ],
     targets: [
         .executableTarget(
-            name: "BlogWebsite",
-            dependencies: [
-                .product(name: "Publish", package: "publish"),
-            ]
-        ),
+            name: "SookimTWL",
+            dependencies: ["Ignite"]),
     ]
 )

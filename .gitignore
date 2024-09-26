@@ -8,3 +8,14 @@ Output
 
 # Node.js
 node_modules
+
+# Ignite
+
+Build
+.build
+Packages
+xcuserdata/
+DerivedData/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc

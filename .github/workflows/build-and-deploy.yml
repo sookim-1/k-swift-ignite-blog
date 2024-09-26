@@ -14,28 +14,22 @@ jobs:
       image: swift:5.6-focal
     steps:
     - uses: actions/checkout@v3
-    - name: Install Dependencies
-      run: |
-        apt-get update
-        apt-get install -y make
+
     - name: Build
       run: |
-        swift --version
-        swift package --version
-        swift build -v
-    - name: Setup
-      run: make setup
-    - name: Generate the website
-      run: make generate
+        swift build --configuration release
+        .build/release/SookimTWL
+
     - name: Copy existing files
       run: |
-        cp google70dd4382a6eecd18.html ./Output/
-        cp robots.txt ./Output/
-        cp naver50ba38ef6c02338f50a2369f3010ed59.html ./Output/
+        cp google70dd4382a6eecd18.html ./Build/
+        cp robots.txt ./Build/
+        cp naver50ba38ef6c02338f50a2369f3010ed59.html ./Build/
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
         external_repository: sookim-1/sookim-1.github.io
         publish_branch: main
-        publish_dir: ./Output
+        publish_dir: ./Build/
