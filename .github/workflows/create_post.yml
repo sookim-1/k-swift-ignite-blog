@@ -69,7 +69,7 @@ jobs:
         END_DATE=$END_YEAR.$END_MONTH.$END_DAY
         
         touch $POST_FILE
-        echo -e "---\ndate: $POST_DATE $POST_TIME\ndescription: 요약\ntags: iOS, Swift\n---\n# 번호 : ${{ github.event.inputs.post_number }}, 작성일자: $POST_DATE\n## $START_DATE ~ $END_DATE\n### 제목\n내용작성" > $POST_FILE
+        echo -e "---\nauthor: sookim-1\ndescription: 요약\ndate: $POST_DATE $POST_TIME\ntags: iOS, Swift\n---\npublished: true\n# 번호 : ${{ github.event.inputs.post_number }}, 작성일자: $POST_DATE\n## $START_DATE ~ $END_DATE\n### 제목\n내용작성" > $POST_FILE
         git add $POST_FILE
         git commit -m "Create $POST_FILENAME"
         git push origin ${{ steps.create_work_branch.outputs.work_branch_name }}
