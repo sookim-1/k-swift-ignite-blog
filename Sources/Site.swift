@@ -16,8 +16,8 @@ struct IgniteWebsite {
 
 struct SookimSite: Site {
     var name = "sookim-1"
-    var titleSuffix = " – My Awesome Site"
-    var url = URL("https://www.example.com")
+    var titleSuffix = " – My T.W.L Site"
+    var url = URL(string: "https://sookim-1.github.io")!
     var builtInIconsEnabled = true
 
     var author = "sookim-1"
@@ -25,6 +25,13 @@ struct SookimSite: Site {
     var homePage = Home()
     var theme = MyTheme()
     var tagPage = Tags()
+    var favicon = URL(string: "/images/favicon.png")
+    var feedConfiguration = FeedConfiguration(mode: .full, contentCount: 20, image: .init(url: "https://sookim-1.github.io/images/favicon.png", width: 32, height: 32))
+
+    var pages: [any StaticPage] {
+        Home()
+        HomeEn()
+    }
 
     var layouts: [any ContentPage] {
         Story()

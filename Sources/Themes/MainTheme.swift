@@ -7,14 +7,7 @@ struct MyTheme: Theme {
             Head(for: page, in: context)
 
             Body {
-                NavBar()
-                
                 page.body
-
-                Group {
-                    SocialFooter()
-                    IgniteFooter()
-                }
             }
             .padding(.vertical, 80)
             .class("container")
