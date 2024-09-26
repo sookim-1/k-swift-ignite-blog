@@ -22,7 +22,7 @@ struct SookimSite: Site {
 
     var author = "sookim-1"
 
-    var homePage = ContentExamples()
+    var homePage = Home()
     var theme = MyTheme()
     var tagPage = Tags()
 

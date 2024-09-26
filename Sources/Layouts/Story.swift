@@ -21,14 +21,15 @@ struct Story: ContentPage {
                 .horizontalAlignment(.center)
         }
 
+        Text(content.body)
+
         if content.hasTags {
             Group {
-                Text("Tagged with: \(content.tags.joined(separator: ", "))")
-
-                Text("\(content.estimatedWordCount) words; \(content.estimatedReadingMinutes) minutes to read.")
+                Text {
+                    content.tagLinks(in: context)
+                }
+                .font(.title3)
             }
         }
-
-        Text(content.body)
     }
 }

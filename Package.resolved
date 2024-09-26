@@ -3,10 +3,10 @@
     {
       "identity" : "ignite",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/twostraws/Ignite.git",
+      "location" : "https://github.com/sookim-1/Ignite.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "ee8aad33505d4fe04e435044fef26ed7792b06e1"
+        "branch" : "feat_content_style",
+        "revision" : "e21196b5c9863c4587d42777c2ad8abc4edc83cc"
       }
     },
     {

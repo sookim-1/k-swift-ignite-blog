@@ -13,9 +13,13 @@ struct Tags: TagPage {
         if let tag {
             Text(tag)
                 .font(.title1)
+                .foregroundStyle(.pink)
+                .background(.pink)
         } else {
             Text("All tags")
                 .font(.title1)
+                .foregroundStyle(.pink)
+                .background(.purple)
         }
 
         let articles = context.content(tagged: tag)
