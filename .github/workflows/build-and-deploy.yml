@@ -9,16 +9,23 @@ permissions:
 
 jobs:
   build-and-deploy:
-    runs-on: macos-15
-    container:
-      image: swift:5.9-focal
+    permissions:
+      contents: read
+      deployments: write    
+    runs-on: macos-14
+    
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-    - name: Build
-      run: |
-        swift build --configuration release
-        .build/release/SookimTWL
+    - name: Set up Swift
+      uses: swift-actions/setup-swift@v2
+
+    - name: Build Swift package
+      run: swift build --configuration release
+
+    - name: Run Swift package
+      run: .build/release/SooKimTWL
 
     - name: Copy existing files
       run: |
