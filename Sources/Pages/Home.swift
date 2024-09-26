@@ -43,6 +43,7 @@ struct Home: StaticPage {
                 }
                 .width(.max)
                 .margin(.vertical, 50)
+                .background(.white)
             }
 
             SocialFooter()
