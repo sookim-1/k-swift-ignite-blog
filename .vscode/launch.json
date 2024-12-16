@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:blog-website}",
+            "name": "Debug SookimTWL",
+            "program": "${workspaceFolder:blog-website}/.build/debug/SookimTWL",
+            "preLaunchTask": "swift: Build Debug SookimTWL"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:blog-website}",
+            "name": "Release SookimTWL",
+            "program": "${workspaceFolder:blog-website}/.build/release/SookimTWL",
+            "preLaunchTask": "swift: Build Release SookimTWL"
+        }
+    ]
+}
