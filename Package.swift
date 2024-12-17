@@ -7,7 +7,7 @@ let package = Package(
     name: "SookimTWL",
     platforms: [.macOS(.v13)],
     dependencies: [
-        .package(url: "https://github.com/sookim-1/Ignite.git", branch: "feat_content_style")
+        .package(url: "https://github.com/twostraws/Ignite.git", exact: .init(0, 2, 2))
     ],
     targets: [
         .executableTarget(

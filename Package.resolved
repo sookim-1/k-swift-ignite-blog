@@ -3,10 +3,10 @@
     {
       "identity" : "ignite",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sookim-1/Ignite.git",
+      "location" : "https://github.com/twostraws/Ignite.git",
       "state" : {
-        "branch" : "feat_content_style",
-        "revision" : "e21196b5c9863c4587d42777c2ad8abc4edc83cc"
+        "revision" : "d4d87ed9e3cfa7f76aa399c0c2327c5145e6b190",
+        "version" : "0.2.2"
       }
     },
     {
@@ -21,10 +21,10 @@
     {
       "identity" : "swift-cmark",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/swiftlang/swift-cmark.git",
+      "location" : "https://github.com/apple/swift-cmark.git",
       "state" : {
-        "branch" : "gfm",
-        "revision" : "b022b08312decdc46585e0b3440d97f6f22ef703"
+        "revision" : "3ccff77b2dc5b96b77db3da0d68d28068593fa53",
+        "version" : "0.5.0"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftlang/swift-markdown.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "7530dfe833d8d7e222c3306bd3fa4c9153e23fb9"
+        "revision" : "8f79cb175981458a0a27e76cb42fee8e17b1a993",
+        "version" : "0.5.0"
       }
     }
   ],
