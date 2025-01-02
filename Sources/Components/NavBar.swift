@@ -10,11 +10,11 @@ import Ignite
 
 struct NavBar: Component {
     let name: String
-    let language: NavigationListCategory
+    let listItemCategory: NavigationListCategory
 
     func body(context: PublishingContext) -> [any PageElement] {
         NavigationBar(logo: logo) {
-                Dropdown("List : \(language.flag)") {
+                Dropdown("List : \(listItemCategory.flag)") {
                     for item in NavigationListCategory.allCases {
                         Link(target: item.page) {
                             Text("\(item.flag)")

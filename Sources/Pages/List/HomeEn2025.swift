@@ -13,7 +13,7 @@ struct HomeEn2025: StaticPage {
 
     func body(context: PublishingContext) -> [BlockElement] {
         Group {
-            NavBar(name: "sookim's T.W.L", language: .english2025)
+            NavBar(name: "sookim's T.W.L", listItemCategory: .english2025)
 
             let orderedAllContext = context.content(ofType: "en_2025").sorted {
                 $0.date > $1.date

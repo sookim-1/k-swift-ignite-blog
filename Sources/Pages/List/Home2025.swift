@@ -6,7 +6,7 @@ struct Home2025: StaticPage {
 
     func body(context: PublishingContext) -> [BlockElement] {
         Group {
-            NavBar(name: "수킴의 개인 T.W.L", language: .korean2025)
+            NavBar(name: "수킴의 개인 T.W.L", listItemCategory: .korean2025)
 
             let orderedAllContext = context.content(ofType: "ko_2025").sorted {
                 $0.date > $1.date
