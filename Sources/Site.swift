@@ -22,15 +22,17 @@ struct SookimSite: Site {
 
     var author = "sookim-1"
 
-    var homePage = Home()
+    var homePage = Home2025()
     var theme = MyTheme()
     var tagPage = Tags()
     var favicon = URL(string: "/images/favicon.png")
     var feedConfiguration = FeedConfiguration(mode: .full, contentCount: 20, image: .init(url: "https://sookim-1.github.io/images/favicon.png", width: 32, height: 32))
 
     var pages: [any StaticPage] {
-        Home()
-        HomeEn()
+        Home2024()
+        Home2025()
+        HomeEn2024()
+        HomeEn2025()
     }
 
     var layouts: [any ContentPage] {

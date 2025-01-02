@@ -1,21 +1,14 @@
-//
-//  HomeEn.swift
-//
-//
-//  Created by sookim on 9/26/24.
-//
-
 import Foundation
 import Ignite
 
-struct HomeEn: StaticPage {
-    var title = "sookim's T.W.L"
+struct Home2025: StaticPage {
+    var title = "수킴의 개인 T.W.L"
 
     func body(context: PublishingContext) -> [BlockElement] {
         Group {
-            NavBar(name: "sookim's T.W.L", language: .english)
+            NavBar(name: "수킴의 개인 T.W.L", language: .korean2025)
 
-            let orderedAllContext = context.content(ofType: "en").sorted {
+            let orderedAllContext = context.content(ofType: "ko_2025").sorted {
                 $0.date > $1.date
             }
 

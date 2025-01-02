@@ -1,14 +1,14 @@
 import Foundation
 import Ignite
 
-struct Home: StaticPage {
+struct Home2024: StaticPage {
     var title = "수킴의 개인 T.W.L"
 
     func body(context: PublishingContext) -> [BlockElement] {
         Group {
-            NavBar(name: "수킴의 개인 T.W.L", language: .korean)
+            NavBar(name: "수킴의 개인 T.W.L", language: .korean2024)
 
-            let orderedAllContext = context.content(ofType: "ko").sorted {
+            let orderedAllContext = context.content(ofType: "ko_2024").sorted {
                 $0.date > $1.date
             }
 
