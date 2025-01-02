@@ -1,5 +1,5 @@
 //
-//  HomeEn.swift
+//  ContentListEn2025.swift
 //
 //
 //  Created by sookim on 9/26/24.
@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct HomeEn2025: StaticPage {
+struct ContentListEn2025: StaticPage {
     var title = "sookim's T.W.L"
 
     func body(context: PublishingContext) -> [BlockElement] {

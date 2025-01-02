@@ -1,7 +1,7 @@
 import Foundation
 import Ignite
 
-struct Home2024: StaticPage {
+struct ContentList2024: StaticPage {
     var title = "수킴의 개인 T.W.L"
 
     func body(context: PublishingContext) -> [BlockElement] {

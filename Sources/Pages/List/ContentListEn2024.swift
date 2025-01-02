@@ -1,14 +1,21 @@
+//
+//  ContentListEn2024.swift
+//
+//
+//  Created by sookim on 9/26/24.
+//
+
 import Foundation
 import Ignite
 
-struct Home2025: StaticPage {
-    var title = "수킴의 개인 T.W.L"
+struct ContentListEn2024: StaticPage {
+    var title = "sookim's T.W.L"
 
     func body(context: PublishingContext) -> [BlockElement] {
         Group {
-            NavBar(name: "수킴의 개인 T.W.L", listItemCategory: .korean2025)
+            NavBar(name: "sookim's T.W.L", listItemCategory: .english2024)
 
-            let orderedAllContext = context.content(ofType: "ko_2025").sorted {
+            let orderedAllContext = context.content(ofType: "en_2024").sorted {
                 $0.date > $1.date
             }
 
