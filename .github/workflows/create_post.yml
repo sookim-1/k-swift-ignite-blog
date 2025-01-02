@@ -48,7 +48,7 @@ jobs:
       id: create_post
       run: |
         POST_FILENAME="${{ github.event.inputs.post_number }}-${{ github.event.inputs.post_date }}.md"
-        POST_FILE="./Content/ko/$POST_FILENAME"
+        POST_FILE="./Content/ko_2025/$POST_FILENAME"
         POST_DATE_BEFORE=${{ github.event.inputs.post_date }}
         POST_YEAR=${POST_DATE_BEFORE:0:4}
         POST_MONTH=${POST_DATE_BEFORE:4:2}
@@ -81,7 +81,7 @@ jobs:
       id: create_post_en
       run: |
         POST_FILENAME="${{ github.event.inputs.post_number }}-${{ github.event.inputs.post_date }}_en.md"
-        POST_FILE="./Content/en/$POST_FILENAME"
+        POST_FILE="./Content/en_2025/$POST_FILENAME"
         POST_DATE_BEFORE=${{ github.event.inputs.post_date }}
         POST_YEAR=${POST_DATE_BEFORE:0:4}
         POST_MONTH=${POST_DATE_BEFORE:4:2}
