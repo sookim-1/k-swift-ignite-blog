@@ -1,5 +1,4 @@
-
-이전에 포스팅한 글에서 소개했듯이, 저는 Swift로 정적 사이트를 만들 수 있는 [Publish](https://github.com/johnsundell/publish) 라이브러리를 사용하여 T.W.L(This Week I Learned) 블로그를 만들어 운영하고 있었습니다.
+이전에 [포스팅한 글](https://github.com/sookim-1/k-swift-publish-blog/blob/main/docs/blog_development.md)에서 소개했듯이, 저는 Swift로 정적 사이트를 만들 수 있는 [Publish](https://github.com/johnsundell/publish) 라이브러리를 사용하여 T.W.L(This Week I Learned) 블로그를 만들어 운영하고 있었습니다.
 
 그러던 중, 또 다른 Swift로 정적웹사이트를 만들 수 있는 [Ignite](https://github.com/twostraws/Ignite)를 발견하고 몇가지 저만의 기준으로 장점이 있다고 생각하여 Migration을 해야겠다고 생각했습니다.
 
@@ -9,7 +8,7 @@
 3. 라이브러리 자주 업데이트되고 있었습니다.
 4. 라이브러리 공식문서가 잘 정리되어있었습니다.
 
-도입결정을 했기 때문에 기존 Publish 기반의 코드는 별도의 [Archive 저장소](https://github.com/sookim-1/Arcihive_Publish_Blog)에 보관하고 Github Page는 하나의 저장소만 사용가능하여 Vercel을 통해 호스팅을 유지했습니다.
+도입결정을 했기 때문에 기존 Publish 기반의 코드는 별도의 [k-swift-publish-blog](https://github.com/sookim-1/k-swift-publish-blog)에 보관하고 Github Page는 하나의 저장소만 사용가능하여 Vercel을 통해 호스팅을 유지했습니다.
 
 ## Ignite 구조 분석
 
@@ -147,7 +146,7 @@ Footer에 표시할 Github, LinkedIn을 넣을 예정이여서 2가지를 추가
 
 ### 오픈소스 기여 : ContentPreviewStyle 개발 경험
 
-![[ignite_capture1.png]]
+![capture1](ignite_capture1.png)
 
 마이그레이션 중 가장 흥미로운 경험은 Ignite에 직접 기여한 일이었습니다.
 
@@ -337,7 +336,7 @@ public struct ContentPreview: BlockElement {
 
 최종 결과물은 저는 제목 색상만을 변경하여 사용하게 되었습니다.
 
-![[ignite_capture2.png]]
+![capture2](ignite_capture2.png)
 
 
 ## 마무리
