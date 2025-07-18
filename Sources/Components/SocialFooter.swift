@@ -16,9 +16,9 @@ public struct SocialFooter: Component {
     ]
 
     let urlStrings = [
-        "https://github.com/sookim-1",
-        "https://www.linkedin.com/in/sookim1",
-        "https://sookim-1.medium.com"
+        githubAddress,
+        linkedInAddress,
+        blogAddress
     ]
 
     public func body(context: PublishingContext) -> [any PageElement] {

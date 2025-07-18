@@ -15,18 +15,18 @@ struct IgniteWebsite {
 }
 
 struct SookimSite: Site {
-    var name = "sookim-1"
+    var name = githubProfileName
     var titleSuffix = " – My T.W.L Site"
-    var url = URL(string: "https://sookim-1.github.io")!
+    var url = URL(string: githubPagesAddress)!
     var builtInIconsEnabled = true
 
-    var author = "sookim-1"
+    var author = githubProfileName
 
     var homePage = Home()
     var theme = MyTheme()
     var tagPage = Tags()
     var favicon = URL(string: "/images/favicon.png")
-    var feedConfiguration = FeedConfiguration(mode: .full, contentCount: 20, image: .init(url: "https://sookim-1.github.io/images/favicon.png", width: 32, height: 32))
+    var feedConfiguration = FeedConfiguration(mode: .full, contentCount: 20, image: .init(url: "\(githubPagesAddress)/images/favicon.png", width: 32, height: 32))
 
     var pages: [any StaticPage] {
         Home()
